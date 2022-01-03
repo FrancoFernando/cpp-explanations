@@ -1,0 +1,30 @@
+#include <algorithm>
+#include <vector>
+#include <iostream>
+
+using namespace std;
+ 
+int main() {
+ 
+  vector<int> v1{0, 1, 2, 3, 4, 4, 4, 5, 6, 7, 8, 9};
+  vector<int> v2{4, 5, 6, 7};
+ 
+  auto fwdIt = search(v1.begin(), v1.end(), v2.begin(), v2.end());
+ 
+  if (fwdIt != v1.end()) {
+    cout << "v1 at position " << distance(v1.begin(), fwdIt)   << " in v1." << endl; 
+  }
+   
+  auto fwdIt2 = find_end(v1.begin(), v1.end(), v2.begin(), v2.end());
+ 
+  if (fwdIt2 != v1.end()) {
+    cout << "v2 at position " << distance(v1.begin(), fwdIt2)   << " in v1." << endl; 
+  }
+  
+  // FwdIt search_n(FwdIt first, FwdIt last, Size count, const T& value)
+  auto fwdIt3 = search_n(v1.begin(), v1.end(),3,4);
+ 
+  if (fwdIt3 != v1.end()) {
+    cout << "arr3 at position " << distance(v1.begin(), fwdIt3)   << " in v1." << endl; 
+  }
+}
